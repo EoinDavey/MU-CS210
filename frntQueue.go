@@ -5,13 +5,13 @@ import (
 )
 
 type Link struct {
-	data string
-	prev *Link
+    data string
+    prev *Link
 }
 
 type queue struct {
-	front *Link
-	back  *Link
+    front *Link
+    back  *Link
     size  int
 }
 
@@ -65,13 +65,9 @@ func main() {
             q.pop()
         }
     }
-    target := (q.size-1)/2
     if q.size==0 {
         fmt.Println("empty")
     } else {
-        for c:=0; c < target; c++ {
-            q.pop()
-        }
         fmt.Println(q.top())
     }
 }
