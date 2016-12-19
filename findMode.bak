@@ -1,0 +1,39 @@
+package main
+
+import (
+"fmt"
+)
+
+func main() {
+    var N int
+    fmt.Scan(&N)
+    arr := make([]int, N)
+    for i := 0; i < N; i++ {
+        fmt.Scan(&arr[i])
+    }
+    freqTab := [2002]int{}
+    posTab := [2002]int{}
+    for i, _ := range posTab {
+        posTab[i] = -1
+    }
+    for i, v := range arr {
+        freqTab[(v+1000)]++
+        if posTab[v+1000] == -1 {
+            posTab[v+1000] = i
+        }
+    }
+    max := 0
+    ans := 0
+    pos := 0
+    for i, v := range freqTab {
+        if v > max {
+            ans = i
+            max = v
+            pos = posTab[i]
+        } else if v == max && posTab[i] < pos {
+            ans = i
+            pos = posTab[i]
+        }
+    }
+    fmt.Println(ans-1000)
+}
