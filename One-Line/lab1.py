@@ -1,1 +1,1 @@
-print ["VALID","INVALID"][(lambda s:reduce(lambda x,i:x+[s[i],[2*s[i],2*s[i]-9][s[i]>4]][i%2],range(len(s)),0))(map(int,raw_input()[::-1]))%10!=0]
+print ["VALID","INVALID"][reduce(lambda (x,b),c:(x+[c,[2*c,2*c-9][c>4]][b],not b),map(int,raw_input()[::-1]),(0,False))[0]%10!=0]
